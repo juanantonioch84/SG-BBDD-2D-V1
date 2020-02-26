@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 1249a4906c85d824d8d73e28c6f67726
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _erLinePrefab: {instanceID: 0}
+  - erEntityPrefab: {fileID: 5680663096734858553, guid: 3f396172bb290f0469ebcb5762107aca,
+      type: 3}
+  - erAttributePrefab: {fileID: 7512818526401472894, guid: 975d159c85b8a2542b88a72c3e331f3a,
+      type: 3}
+  - erRelationPrefab: {fileID: 6211997566052675414, guid: c28567680db7007498fde82f72a22af6,
+      type: 3}
+  - wordsContainer: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
