@@ -10,7 +10,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>Mac</string>
+	<string>Mac_v1</string>
 	<key>CFBundleGetInfoString</key>
 	<string>Unity Player version 2018.3.2f1 (b3c100a4b73a). (c) 2019 Unity Technologies ApS. All rights reserved.</string>
 	<key>CFBundleIconFile</key>

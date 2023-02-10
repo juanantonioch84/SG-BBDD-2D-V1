@@ -3,8 +3,7 @@ using System.Collections.Generic;
 
 public static class NotesData
 {
-    /*
-    public static NoteModel b1_n1 = new NoteModel(
+    private static NoteModel b1_n1 = new NoteModel(
         "Todo profesor contratado por la Universidad pertenece a un único departamento.",
         new string[] { "profesor", "pertenece a", "departamento" },
         new string[] { "profesor", "pertenece a", "departamento" }
@@ -93,9 +92,10 @@ public static class NotesData
         new string[] { "aulas", "edificios", "número", "aula", "capacidad" },
         new string[] { "aula", "edificio (2)", "número", "capacidad" }
     );
-   
+
+
     private static Dictionary<string, NoteModel> _b1Notes = new Dictionary<string, NoteModel>() {
-        {"b1-n1", NoteLoader.LoadNote("Data/Dictionary"},
+        {"b1-n1", b1_n1},
         {"b1-n2", b1_n2},
         {"b1-n3", b1_n3},
         {"b1-n4", b1_n4},
@@ -118,12 +118,10 @@ public static class NotesData
         {"b3-n5", b3_n5}
     };
 
-    */
-
     private static Dictionary<string, Dictionary<string, NoteModel>> _notes = new Dictionary<string, Dictionary<string, NoteModel>> {
-        {"b1", NoteLoader.LoadNote(1)},
-        {"b2", NoteLoader.LoadNote(2)},
-        {"b3", NoteLoader.LoadNote(3)}
+        {"b1", _b1Notes},
+        {"b2", _b2Notes},
+        {"b3", _b3Notes}
     };
 
     // Return a dictionary with the note codes and rich texts according to the received index

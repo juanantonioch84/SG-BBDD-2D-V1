@@ -58,7 +58,7 @@ public class UILineRendererController : MonoBehaviour
     }
 
     // Cardinality value changed
-    private void OnCardinalityChanged()
+    public void OnCardinalityChanged()
     {
         // Update cardinality in global controller
         string lineName = ERLine.CreateName(_rt1.gameObject.name, _rt2.gameObject.name);
@@ -68,10 +68,11 @@ public class UILineRendererController : MonoBehaviour
         ActionInfo actionInfo = new ActionInfo();
         actionInfo.Add("node1_name", _rt1.gameObject.name);
         actionInfo.Add("node1_type", NodeModel.NodeTypeString(_node1Type));
-        actionInfo.Add("node2_name", _rt2.gameObject.name);
+        actionInfo.Add("node2_name", _rt1.gameObject.name);
         actionInfo.Add("node2_type", NodeModel.NodeTypeString(_node2Type));
         actionInfo.Add("line_name", lineName);
         actionInfo.Add("cardinality", Dropdown.options[Dropdown.value].text);
         GameDataController.Add("set_cardinality", actionInfo);
     }
+
 }

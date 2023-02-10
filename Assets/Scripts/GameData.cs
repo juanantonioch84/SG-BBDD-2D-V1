@@ -87,7 +87,7 @@ public class GameDataSet
         GameDataRow gameDataRow = new GameDataRow();
         gameDataRow.player_id = Player;
         gameDataRow.case_id = CaseId;
-        gameDataRow.date_time = DateTime.UtcNow.ToString("dd/MM/yyyy H:mm:ss (zzz)");
+        gameDataRow.date_time = DateTime.Now.ToString();
         gameDataRow.action_name = action_name;
         gameDataRow.action_info = action_info;
 
@@ -105,11 +105,6 @@ public class GameDataSet
             streamWriter.Write(gameDataJsonString);
         }
     }
-    /*
-    public void SaveExternal()
-    {
-    }
-    */
 }
 
 [Serializable]
