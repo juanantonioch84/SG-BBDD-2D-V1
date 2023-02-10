@@ -77,7 +77,7 @@ public class BuildingController : MonoBehaviour
     void SaveVisit()
     {
         // Add Notes, Words and visited buildings to the global notebook
-        GlobalController.Instance.AddNotes(_notes);
+        GlobalController.Instance.AddNotes(_notes, _buildingCode);
         GlobalController.Instance.AddWords(_words);
         GlobalController.Instance.AddVisitedBuilding(_buildingCode);
 

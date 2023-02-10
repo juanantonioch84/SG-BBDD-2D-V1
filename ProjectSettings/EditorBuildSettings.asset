@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/B3Scene.unity
     guid: e267f6abdd97889478995cbe916eacf2
+  - enabled: 1
+    path: Assets/Scenes/MessageScene.unity
+    guid: 49d1922dd5517924d9021aad6927f6a5
   m_configObjects: {}

@@ -20,6 +20,9 @@ public class DiagramController : MonoBehaviour
     private RectTransform _nodeFirst;
     private RectTransform _nodeSecond;
 
+    // Temporal solution to cardinality action duplicating on every diagram load
+    // private DropDown dropDown;
+
 
     // Start is called before the first frame update
     void Start()
@@ -70,7 +73,7 @@ public class DiagramController : MonoBehaviour
 
             UILineRendererController uiLineRendererController = InstantiateERLine(node1, node2);
             if (erLine.Value.EnabledCardinality) {
-                uiLineRendererController.Dropdown.value = erLine.Value.Cardinality;
+                uiLineRendererController.Dropdown.SetValueWithoutNotify(erLine.Value.Cardinality);
             }
         }
     }

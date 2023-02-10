@@ -13,7 +13,9 @@ public class GlobalController : MonoBehaviour
 {
     public static GlobalController Instance;
 
-    public Dictionary<string, string> _notes;
+    public Dictionary<string, string> _notesB1, _notesB2, _notesB3;
+    public Dictionary<string, Dictionary<string, string>> _notes;
+    //public List<Dictionary<string, string>> _notes;
 
     public List<string> _words;
 
@@ -28,7 +30,14 @@ public class GlobalController : MonoBehaviour
     {
         if (Instance == null) {
 
-            _notes = new Dictionary<string, string>();
+            _notesB1 = new Dictionary<string, string>();
+            _notesB2 = new Dictionary<string, string>();
+            _notesB3 = new Dictionary<string, string>();
+            _notes = new Dictionary<string, Dictionary<string, string>> {
+                { "b1", _notesB1 },
+                { "b2", _notesB2 },
+                { "b3", _notesB3 }
+            };
             _words = new List<string>();
             _visitedBuildings = new List<string>();
             StoredNodes = new Dictionary<string, NodeModel>();
@@ -36,8 +45,6 @@ public class GlobalController : MonoBehaviour
 
             DontDestroyOnLoad(gameObject);
             Instance = this;
-
-
 
             ////AIzaSyCViVi2POQSTVW2bTq_y4iZHIjMdx5juf4
 
@@ -163,11 +170,11 @@ public class GlobalController : MonoBehaviour
         }
     }
 
-    public void AddNotes(Dictionary<string, string> notes)
+    public void AddNotes(Dictionary<string, string> notes, string BuildingCode)
     {
         foreach (KeyValuePair<string, string> note in notes) {
-            if (! _notes.ContainsKey(note.Key)) {
-                _notes.Add(note.Key, note.Value);
+            if (! _notes[BuildingCode].ContainsKey(note.Key)) {
+                _notes[BuildingCode].Add(note.Key, note.Value);
             }
         }
     }

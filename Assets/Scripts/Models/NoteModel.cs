@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class NoteModel
 {
+    // Complete text of the note
+    public string _noteID;
+
     // Complete text of the note
     public string _text;
 
