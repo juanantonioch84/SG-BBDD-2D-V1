@@ -8,10 +8,10 @@ public class ERLine
     public string Name { get; set; }
     public string Node1Name { get; set; }
     public string Node2Name { get; set; }
-    public int Cardinality { get; set; }
+    public string Cardinality { get; set; }
     public bool EnabledCardinality { get; set; }
 
-    public ERLine(string node1, string node2, bool enabledCardinality = false, int cardinality = 0)
+    public ERLine(string node1, string node2, bool enabledCardinality = false, string cardinality = "")
     {
         Name = CreateName(node1, node2);
         Node1Name = node1;

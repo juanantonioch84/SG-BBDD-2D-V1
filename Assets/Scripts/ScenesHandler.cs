@@ -5,6 +5,9 @@ using UnityEditor;
 
 public class ScenesHandler : MonoBehaviour
 {
+
+    public bool isGamePaused = false;
+
     public void LoadScene(string scene)
     {
         if (scene != SceneManager.GetActiveScene().name) {
@@ -16,5 +19,10 @@ public class ScenesHandler : MonoBehaviour
 
             SceneManager.LoadScene(scene);
         }
+    }
+
+    public void PauseGame(bool isPaused)
+    {
+        isGamePaused = isPaused;
     }
 }

@@ -8,9 +8,23 @@ public class StartController : MonoBehaviour
 {
     public InputField inputPlayerID;
 
+    void Update()
+    {
+        if(Input.GetKey(KeyCode.Return))
+        {
+            StartGame();
+        }
+    }
+
     public void onClick()
     {
-        if (inputPlayerID.text != "") {
+        StartGame();
+    }
+
+    private void StartGame()
+    {
+        if (inputPlayerID.text != "")
+        {
 
             // Init player gameplay
             GameDataController.InitPlayer(inputPlayerID.text);

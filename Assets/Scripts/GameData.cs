@@ -42,6 +42,28 @@ public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IS
 
 [Serializable] public class ActionInfo : SerializableDictionary<string, string> { }
 
+[Serializable]
+public class ERDiagram
+{
+    public List<string> entities;
+    public List<string> attributes;
+    public List<string> relations;
+    public List<string> ent_rel_links;
+    public List<string> ent_att_links;
+    public List<string> att_rel_links;
+    public ActionInfo cardinalities;
+
+    public ERDiagram()
+    {
+        entities = new List<string>();
+        attributes = new List<string>();
+        relations = new List<string>();
+        ent_rel_links = new List<string>();
+        ent_att_links = new List<string>();
+        att_rel_links = new List<string>();
+        cardinalities = new ActionInfo();
+    }
+}
 
 [Serializable]
 public class GameDataRow
@@ -51,6 +73,7 @@ public class GameDataRow
     public string date_time;
     public string action_name;
     public ActionInfo action_info;
+    public ERDiagram er_diagram;
 }
 
 [Serializable]
@@ -75,7 +98,7 @@ public class GameDataSet
         Filepath = Path.Combine(Application.persistentDataPath, "data-" + CaseId + ".json");
     }
 
-    public void Add(string action_name, ActionInfo action_info)
+    public void Add(string action_name, ActionInfo action_info, ERDiagram er_diagram)
     {
         // TODO - TO BE REMOVED
         //System.DateTime epochStart = new System.DateTime(1970, 1, 1, 0, 0, 0, System.DateTimeKind.Utc);
@@ -87,9 +110,10 @@ public class GameDataSet
         GameDataRow gameDataRow = new GameDataRow();
         gameDataRow.player_id = Player;
         gameDataRow.case_id = CaseId;
-        gameDataRow.date_time = DateTime.Now.ToString();
+        gameDataRow.date_time = DateTime.UtcNow.ToString("dd/MM/yyyy H:mm:ss (zzz)");
         gameDataRow.action_name = action_name;
         gameDataRow.action_info = action_info;
+        gameDataRow.er_diagram = er_diagram;
 
         dataset.Add(gameDataRow);
 
@@ -120,9 +144,9 @@ public static class GameDataController
     }
 
     // Register an user's action
-    public static void Add(string actionName, ActionInfo actionInfo = null)
+    public static void Add(string actionName, ActionInfo actionInfo = null, ERDiagram erdiagram = null)
     {
-        DataSet.Add(actionName, actionInfo);
+        DataSet.Add(actionName, actionInfo, erdiagram);
     }
 
     //// Save the game data set into a file

@@ -20,7 +20,6 @@ public class DiagramController : MonoBehaviour
     private RectTransform _nodeFirst;
     private RectTransform _nodeSecond;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -70,7 +69,10 @@ public class DiagramController : MonoBehaviour
 
             UILineRendererController uiLineRendererController = InstantiateERLine(node1, node2);
             if (erLine.Value.EnabledCardinality) {
-                uiLineRendererController.Dropdown.value = erLine.Value.Cardinality;
+                //Finds de numeric code for the DroprDown option based on the name of that option which is stored inside the erLine's cardinality.
+                int index = uiLineRendererController.Dropdown.options.FindIndex((i) => { return i.text.Equals(erLine.Value.Cardinality); });
+                //Sets the option without calling the OnCardinalityChanged event
+                uiLineRendererController.Dropdown.SetValueWithoutNotify(index);
             }
         }
     }
